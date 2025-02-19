@@ -58,17 +58,19 @@ class _LoginScreenState extends State<LoginBody> {
       } else {
         final prefs = await SharedPreferences.getInstance();
         await prefs.setBool('rememberMe', rememberMe);
-      if (result['token'] != null) {
-  await prefs.setString('token', result['token']!);
-  print("✅ Token Saved: ${result['token']}");
-} else {
-  print("❌ فشل حفظ التوكن، القيمة NULL");
-} // ✅ حفظ التوكن
+        if (result['token'] != null) {
+          await prefs.setString('token', result['token']!);
+          print("✅ Token Saved: ${result['token']}");
+        } else {
+          print("❌ فشل حفظ التوكن، القيمة NULL");
+        } // ✅ حفظ التوكن
 
         print("✅ Token Saved: ${result['token']}");
 
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('تم تسجيل الدخول بنجاح'), backgroundColor: Colors.green),
+          const SnackBar(
+              content: Text('تم تسجيل الدخول بنجاح'),
+              backgroundColor: Colors.green),
         );
 
         Navigator.pushReplacement(
@@ -94,26 +96,34 @@ class _LoginScreenState extends State<LoginBody> {
                 children: [
                   const SizedBox(height: 20),
                   const Center(
-                    child: Text("تسجيل الدخول", style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: Colors.blue)),
+                    child: Text("تسجيل الدخول",
+                        style: TextStyle(
+                            fontSize: 28,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue)),
                   ),
                   const SizedBox(height: 40),
 
                   // ✅ حقل كود الطالب
                   CustomTextField(
-                    label: "كود الطالب:",
+                    label: ":كود الطالب  ",
                     hint: "أدخل كودك",
                     controller: emailController,
-                    validator: (value) => value == null || value.isEmpty ? "الرجاء إدخال كود الطالب" : null,
+                    validator: (value) => value == null || value.isEmpty
+                        ? "الرجاء إدخال كود الطالب"
+                        : null,
                   ),
                   const SizedBox(height: 20),
 
                   // ✅ حقل كلمة المرور
                   CustomTextField(
-                    label: "كلمة السر:",
+                    label: ":كلمة السر",
                     hint: "أدخل كلمة السر",
                     controller: passwordController,
                     isPassword: true,
-                    validator: (value) => value == null || value.isEmpty ? "الرجاء إدخال كلمة السر" : null,
+                    validator: (value) => value == null || value.isEmpty
+                        ? "الرجاء إدخال كلمة السر"
+                        : null,
                   ),
                   const SizedBox(height: 20),
 
@@ -134,6 +144,7 @@ class _LoginScreenState extends State<LoginBody> {
                       ),
                       // GestureDetector(
                       //   onTap: () {
+                      //     showForgotPasswordSheet(context);
                       //     // ✅ منطق "نسيت كلمة السر؟"
                       //   },
                       //   child: const Text(
@@ -159,12 +170,17 @@ class _LoginScreenState extends State<LoginBody> {
                     child: RichText(
                       textAlign: TextAlign.center,
                       text: const TextSpan(
-                        text: "من خلال إنشاء حساب أو تسجيل الدخول، أنت توافق على\n",
+                        text:
+                            "من خلال إنشاء حساب أو تسجيل الدخول، أنت توافق على\n",
                         style: TextStyle(color: Colors.black, fontSize: 12),
                         children: [
-                          TextSpan(text: "الشروط والأحكام", style: TextStyle(color: Colors.blue)),
+                          TextSpan(
+                              text: "الشروط والأحكام",
+                              style: TextStyle(color: Colors.blue)),
                           TextSpan(text: " و "),
-                          TextSpan(text: "بيان الخصوصية", style: TextStyle(color: Colors.blue)),
+                          TextSpan(
+                              text: "بيان الخصوصية",
+                              style: TextStyle(color: Colors.blue)),
                         ],
                       ),
                     ),

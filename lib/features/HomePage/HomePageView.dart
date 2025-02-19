@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task/features/HomePage/ChangePassword.dart';
 
 
 import 'package:task/features/HomePage/sendexecuses.dart';
@@ -18,6 +19,7 @@ class _HomePageState extends State<HomePage> {
   static final List<Widget> _widgetOptions = <Widget>[
     SendTasksPage(),
     SendExcusesPage(),
+    ForgotPasswordPage(),
   ];
 
   void _onItemTapped(int index) {
@@ -41,6 +43,7 @@ class _HomePageState extends State<HomePage> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.task), label: 'إرسال المهام '),
           BottomNavigationBarItem(icon: Icon(Icons.access_alarm), label: 'إرسال الاعذار '),
+          BottomNavigationBarItem(icon: Icon(Icons.password), label: ' تغيير كلمة المرور '),
         ],
       ),
     );
