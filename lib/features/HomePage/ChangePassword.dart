@@ -4,12 +4,13 @@ import 'package:task/Logic/ApiServices/ApiServices.dart';
 import 'package:task/features/HomePage/logOutbody.dart';
 
 class ForgotPasswordPage extends StatefulWidget {
+  const ForgotPasswordPage({super.key});
+
   @override
   _ForgotPasswordPageState createState() => _ForgotPasswordPageState();
 }
 
 class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
-  final TextEditingController _emailController = TextEditingController();
   final TextEditingController _currentPasswordController = TextEditingController();
   final TextEditingController _newPasswordController = TextEditingController();
   final TextEditingController _newPasswordConfirmationController = TextEditingController();
@@ -136,7 +137,7 @@ class _ForgotPasswordPageState extends State<ForgotPasswordPage> {
           Center(
             child: ElevatedButton(
               style: ButtonStyle(
-                backgroundColor: MaterialStateProperty.all(Colors.blue),
+                backgroundColor: WidgetStateProperty.all(Colors.blue),
               ),
               onPressed: () async {
                 await changePassword();

@@ -12,7 +12,7 @@ import 'package:task/core/utils/customElavatedButton.dart';
 import 'package:task/features/HomePage/logOutbody.dart';
 
 class SendTasksPage extends StatefulWidget {
-  const SendTasksPage({Key? key}) : super(key: key);
+  const SendTasksPage({super.key});
 
   @override
   State<SendTasksPage> createState() => _SendTasksPageState();
